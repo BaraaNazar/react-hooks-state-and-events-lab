@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Item({ name, category }) {
+  const [className, setClassName] = useState(false)
+  
+  function toogleButton(){
+    setClassName(true)
+  }
   return (
     <li className="">
       <span>{name}</span>
       <span className="category">{category}</span>
-      <button className="add">Add to Cart</button>
+      <button onClick={toogleButton} className={toogleButton?"in-cart":"add"}>Add to Cart</button>
     </li>
   );
 }
